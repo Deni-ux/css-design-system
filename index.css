@@ -1,0 +1,119 @@
+/* ----------  */
+/*  Reset      */
+/* ----------  */
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+picture{
+    margin: 0;
+}
+
+/*  Remove list styles on ul, ol elements*/
+ul[role='list'],
+ol[role='list']{
+    list-style:  none;
+}
+
+/* set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set up body defaults */
+body{
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* 'a' elements that do not have a class get default styles */
+a:not([class]){
+    text-decoration-skip-ink: auto;
+
+}
+
+/* make images easier to work with */
+img, 
+picture{
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons - easier forms */
+input, 
+button,
+textarea,
+ select{
+     font: inherit;
+ }
+
+ /* remove animations for people who have turned them off */
+ @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+ /* ---------------- */
+ /* Utility Classes - one declaration - has one role */
+ /* ---------------- */
+
+ .flex {
+     display: flex;
+     gap: var(--gap, 1rem);
+
+
+ }
+
+ .grid {
+     display: grid;
+     gap: var(--gap, 1rem);
+ }
+
+ .container {
+     /* padding:0 2em; to prevent elements touching sides of the page */
+     padding-inline: 2em; 
+     margin-inline: auto;
+     max-width: 80rem;
+
+ }
+/* screen only -screen reader through the content  */
+ .sr-only {
+     position:absolute;
+     width: 1px;
+     height: 1px;
+     padding: 0;
+     margin: -1px;
+     overflow:hidden;
+     clip: rect(0, 0, 0, 0);
+     white-space: nowrap; /* added line */
+     border: 0;
+    }
+
+    .box{
+        background-color: lightblue;
+        padding: 3rem;
+    }
