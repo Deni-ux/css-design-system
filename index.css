@@ -2,7 +2,7 @@
 /* Custom Properties */
 /* ---------------- */
 :root {
-    /* colours */
+  /* colours */
   --primary-clr: 230 35% 7%;
   --secondary-clr: 231 77% 90%;
   --clr-white: 0 0% 100%;
@@ -18,9 +18,9 @@
   --font-size-200: 0.875rem;
 
   /* font families */
-  --ff-sans-normal: 'Barlow', sans-serif;
---ff-sans-cond: 'Barlow Condensed', sans-serif;
---ff-serif: 'Bellefair', serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-serif: "Bellefair", serif;
 }
 
 /* ----------  */
@@ -58,7 +58,7 @@ h4,
 h5,
 h6,
 p {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 /*  Remove list styles on ul, ol elements*/
@@ -128,8 +128,7 @@ select {
   gap: var(--gap, 1rem);
 }
 .flow > *:where(:not(:first-child)) {
-    margin-top: var(--flow-space, 1rem);
-    outline: 1px solid red;
+  margin-top: var(--flow-space, 1rem);
 }
 /* we can use the var as inline styling, by default it will 
 have the property given in css file, which can easily be modified when needed in the html file */
@@ -180,46 +179,137 @@ have the property given in css file, which can easily be modified when needed in
 
 /* typography */
 .ff-normal {
-    font-family: var(--ff-sans-normal);
+  font-family: var(--ff-sans-normal);
 }
-.ff-condensed{
-    font-family: var(--ff-sans-cond);
+.ff-condensed {
+  font-family: var(--ff-sans-cond);
 }
 .ff-serif {
-    font-family: var(--ff-serif);
+  font-family: var(--ff-serif);
 }
 
-.letter-spacing-1 {letter-spacing: 4.75px;}
-.letter-spacing-2 {letter-spacing: 2.7px;}
-.letter-spacing-3 {letter-spacing: 2.35px;}
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+  letter-spacing: 2.35px;
+}
 
-.uppercase { text-transform: uppercase;}
+.uppercase {
+  text-transform: uppercase;
+}
 
-.font-size-900{font-size: var(--font-size-900);}
-.font-size-800{font-size: var(--font-size-800);}
-.font-size-700{font-size: var(--font-size-700);}
-.font-size-600{font-size: var(--font-size-600);}
-.font-size-500{font-size: var(--font-size-500);}
-.font-size-400{font-size: var(--font-size-400);}
-.font-size-300{font-size: var(--font-size-300);}
-.font-size-200{font-size: var(--font-size-200);}
+.font-size-900 {
+  font-size: var(--font-size-900);
+}
+.font-size-800 {
+  font-size: var(--font-size-800);
+}
+.font-size-700 {
+  font-size: var(--font-size-700);
+}
+.font-size-600 {
+  font-size: var(--font-size-600);
+}
+.font-size-500 {
+  font-size: var(--font-size-500);
+}
+.font-size-400 {
+  font-size: var(--font-size-400);
+}
+.font-size-300 {
+  font-size: var(--font-size-300);
+}
+.font-size-200 {
+  font-size: var(--font-size-200);
+}
 
 .font-size-900,
 .font-size-800,
 .font-size-700,
-.font-size-600{
-        line-height: 1.1;
+.font-size-600 {
+  line-height: 1.1;
 }
 
-.numbered-title{
-         font-family: var(--ff-sans-cond);
-         font-size: var(--font-size-500);
-         text-transform: uppercase;
-         letter-spacing: 4.72px;
+.numbered-title {
+  font-family: var(--ff-sans-cond);
+  font-size: var(--font-size-500);
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
 }
 
-.numbered-title span{
-    margin-right: .5em;
-    font-weight: 700;
-    color: hsl(var(--clr-white)/ 0.25);
+.numbered-title span {
+  margin-right: 0.5em;
+  font-weight: 700;
+  color: hsl(var(--clr-white) / 0.25);
+}
+/* ---------------------- */
+/* -----COMPONENTS------ */
+
+/* styling a link can overwrite or mess with other properties, that's why we use grid and place item */
+.large-button{
+  position: relative;
+  display: grid;
+  z-index: 1;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-decoration: none;
+
+
+}
+
+.large-button::after {
+  content: '' ;
+  position: absolute;
+  z-index: -1;
+  background: hsl(var(--clr-white) / 0.15);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  transition:opacity 500ms linear, transform 750ms ease-in-out ;
+
+}
+
+.large-button:hover::after,
+.large-button:focus::after{
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+/* nav bar */
+.primary-navigation{
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-right: .5em;
+}
+
+/* underlining */
+.underline-indicators > * {
+  padding: var(--underline-gap, 1rem) 0;
+  border-bottom:  .2rem solid hsl(var(--clr-white) /0);
+}
+.underline-indicators > *:hover,
+.underline-indicators > *:focus{
+  border-color: hsl(var(--clr-white) / 0.5);
+}
+
+.underline-indicators > .active {
+  border-color: hsl(var(--clr-white) / 1);
 }
