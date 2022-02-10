@@ -127,6 +127,12 @@ select {
   display: grid;
   gap: var(--gap, 1rem);
 }
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+    outline: 1px solid red;
+}
+/* we can use the var as inline styling, by default it will 
+have the property given in css file, which can easily be modified when needed in the html file */
 
 .container {
   /* padding:0 2em; to prevent elements touching sides of the page */
@@ -203,4 +209,17 @@ select {
 .font-size-700,
 .font-size-600{
         line-height: 1.1;
+}
+
+.numbered-title{
+         font-family: var(--ff-sans-cond);
+         font-size: var(--font-size-500);
+         text-transform: uppercase;
+         letter-spacing: 4.72px;
+}
+
+.numbered-title span{
+    margin-right: .5em;
+    font-weight: 700;
+    color: hsl(var(--clr-white)/ 0.25);
 }
