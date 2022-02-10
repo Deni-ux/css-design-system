@@ -2,12 +2,26 @@
 /* Custom Properties */
 /* ---------------- */
 :root {
-    --primary-clr: 230 35% 7% ;
-    --secondary-clr: 231 77% 90%;
-    --clr-white: 0 0% 100%;
+    /* colours */
+  --primary-clr: 230 35% 7%;
+  --secondary-clr: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+
+  /* fonts px divide 16; rem is for better accessibility*/
+  --font-size-900: 9.375rem;
+  --font-size-800: 6.25rem;
+  --font-size-700: 3.5rem;
+  --font-size-600: 2rem;
+  --font-size-500: 1.75rem;
+  --font-size-400: 1.125rem;
+  --font-size-300: 1rem;
+  --font-size-200: 0.875rem;
+
+  /* font families */
+  --ff-sans-normal: 'Barlow', sans-serif;
+--ff-sans-cond: 'Barlow Condensed', sans-serif;
+--ff-serif: 'Bellefair', serif;
 }
-
-
 
 /* ----------  */
 /*  Reset      */
@@ -17,7 +31,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Reset margins */
@@ -34,51 +48,63 @@ figcaption,
 blockquote,
 dl,
 dd,
-picture{
-    margin: 0;
+picture {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
 }
 
 /*  Remove list styles on ul, ol elements*/
-ul[role='list'],
-ol[role='list']{
-    list-style:  none;
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
 }
 
 /* set core root defaults */
 html:focus-within {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Set up body defaults */
-body{
-    min-height: 100vh;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
+body {
+  font-family: var(--ff-sans-normal);
+  font-size: var(--font-size-400);
+  background-color: hsl(var(--primary-clr));
+  color: hsl(var(--clr-white));
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
 /* 'a' elements that do not have a class get default styles */
-a:not([class]){
-    text-decoration-skip-ink: auto;
-
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
 /* make images easier to work with */
-img, 
-picture{
-    max-width: 100%;
-    display: block;
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
 /* Inherit fonts for inputs and buttons - easier forms */
-input, 
+input,
 button,
 textarea,
- select{
-     font: inherit;
- }
+select {
+  font: inherit;
+}
 
- /* remove animations for people who have turned them off */
- @media (prefers-reduced-motion: reduce) {
+/* remove animations for people who have turned them off */
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -88,53 +114,93 @@ textarea,
     scroll-behavior: auto !important;
   }
 }
- /* ---------------- */
- /* Utility Classes - one declaration - has one role */
- /* ---------------- */
+/* ---------------- */
+/* Utility Classes - one declaration - has one role */
+/* ---------------- */
 
- .flex {
-     display: flex;
-     gap: var(--gap, 1rem);
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
 
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
 
- }
-
- .grid {
-     display: grid;
-     gap: var(--gap, 1rem);
- }
-
- .container {
-     /* padding:0 2em; to prevent elements touching sides of the page */
-     padding-inline: 2em; 
-     margin-inline: auto;
-     max-width: 80rem;
-
- }
+.container {
+  /* padding:0 2em; to prevent elements touching sides of the page */
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
 /* screen only -screen reader through the content  */
- .sr-only {
-     position:absolute;
-     width: 1px;
-     height: 1px;
-     padding: 0;
-     margin: -1px;
-     overflow:hidden;
-     clip: rect(0, 0, 0, 0);
-     white-space: nowrap; /* added line */
-     border: 0;
-    }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
 
-    
-    /* colours */
-    .bg-dark {background-color: hsl(var(--primary-clr));}
-    .bg-medium {background-color: hsl(var(--secondary-clr));}
-    .bg-light {background-color: hsl(var(--clr-white));}
-  
-  
-    .text-dark {color: hsl(var(--primary-clr));}
-    .text-medium {color: hsl(var(--secondary-clr));}
-    .text-light {color: hsl(var(--clr-white));}
+/* colours */
+.bg-dark {
+  background-color: hsl(var(--primary-clr));
+}
+.bg-medium {
+  background-color: hsl(var(--secondary-clr));
+}
+.bg-light {
+  background-color: hsl(var(--clr-white));
+}
 
-   .colour-component{
-       background-color: hsl(var(--secondary-clr) / .2);
-   }
+.text-dark {
+  color: hsl(var(--primary-clr));
+}
+.text-medium {
+  color: hsl(var(--secondary-clr));
+}
+.text-light {
+  color: hsl(var(--clr-white));
+}
+
+.colour-component {
+  background-color: hsl(var(--secondary-clr) / 0.2);
+}
+
+/* typography */
+.ff-normal {
+    font-family: var(--ff-sans-normal);
+}
+.ff-condensed{
+    font-family: var(--ff-sans-cond);
+}
+.ff-serif {
+    font-family: var(--ff-serif);
+}
+
+.letter-spacing-1 {letter-spacing: 4.75px;}
+.letter-spacing-2 {letter-spacing: 2.7px;}
+.letter-spacing-3 {letter-spacing: 2.35px;}
+
+.uppercase { text-transform: uppercase;}
+
+.font-size-900{font-size: var(--font-size-900);}
+.font-size-800{font-size: var(--font-size-800);}
+.font-size-700{font-size: var(--font-size-700);}
+.font-size-600{font-size: var(--font-size-600);}
+.font-size-500{font-size: var(--font-size-500);}
+.font-size-400{font-size: var(--font-size-400);}
+.font-size-300{font-size: var(--font-size-300);}
+.font-size-200{font-size: var(--font-size-200);}
+
+.font-size-900,
+.font-size-800,
+.font-size-700,
+.font-size-600{
+        line-height: 1.1;
+}
