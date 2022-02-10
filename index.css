@@ -1,3 +1,14 @@
+/* ---------------- */
+/* Custom Properties */
+/* ---------------- */
+:root {
+    --primary-clr: 230 35% 7% ;
+    --secondary-clr: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+}
+
+
+
 /* ----------  */
 /*  Reset      */
 /* ----------  */
@@ -113,7 +124,17 @@ textarea,
      border: 0;
     }
 
-    .box{
-        background-color: lightblue;
-        padding: 3rem;
-    }
+    
+    /* colours */
+    .bg-dark {background-color: hsl(var(--primary-clr));}
+    .bg-medium {background-color: hsl(var(--secondary-clr));}
+    .bg-light {background-color: hsl(var(--clr-white));}
+  
+  
+    .text-dark {color: hsl(var(--primary-clr));}
+    .text-medium {color: hsl(var(--secondary-clr));}
+    .text-light {color: hsl(var(--clr-white));}
+
+   .colour-component{
+       background-color: hsl(var(--secondary-clr) / .2);
+   }
