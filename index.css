@@ -8,12 +8,12 @@
   --clr-white: 0 0% 100%;
 
   /* fonts px divide 16; rem is for better accessibility*/
-  --font-size-900: 9.375rem;
-  --font-size-800: 6.25rem;
-  --font-size-700: 3.5rem;
-  --font-size-600: 2rem;
+  --font-size-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --font-size-800: 3.5rem;
+  --font-size-700: 1.5rem;
+  --font-size-600: 1rem;
   --font-size-500: 1.75rem;
-  --font-size-400: 1.125rem;
+  --font-size-400: 0.9375rem;
   --font-size-300: 1rem;
   --font-size-200: 0.875rem;
 
@@ -21,6 +21,29 @@
   --ff-sans-normal: "Barlow", sans-serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-serif: "Bellefair", serif;
+}
+
+/* ---MEDIA QUERY --- */
+@media (min-width: 35rem){
+  /* --tablet-- */
+  :root{
+  
+  --font-size-800: 5rem;
+  --font-size-700: 2.5rem;
+  --font-size-600: 1.5rem;
+  --font-size-500: 1rem;
+  --font-size-400:1rem;
+  }
+}
+
+@media (min-width: 45rem) {
+  :root {
+    /* largest sizes*/
+  --font-size-800: 6.25rem;
+  --font-size-700: 3.5rem;
+  --font-size-600: 2rem;
+  --font-size-400: 1.125rem; 
+  }
 }
 
 /* ----------  */
@@ -81,6 +104,9 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* 'a' elements that do not have a class get default styles */
@@ -118,6 +144,7 @@ select {
 /* Utility Classes - one declaration - has one role */
 /* ---------------- */
 
+/* ---SPACING---- */
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
@@ -127,6 +154,11 @@ select {
   display: grid;
   gap: var(--gap, 1rem);
 }
+
+.d-block{
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -140,16 +172,37 @@ have the property given in css file, which can easily be modified when needed in
   max-width: 80rem;
 }
 .grid-container{
+  text-align: center;
+  border: 5px solid green;
   display: grid;
-  column-gap: var(--container-gap,2rem);
-  grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(0, 40rem)) minmax(2rem, 1fr);
+  place-items: center;
+  padding-inline: 2rem;
+  
 }
-.grid-container > *:first-child{
+/* ------Media query --responsiveness--- */
+@media(min-width: 45rem){
+  .grid-container{
+    text-align: left;
+    column-gap: var(--container-gap,2rem);
+    /* to put space on the sides and between columns  */
+  grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(0, 40rem)) minmax(2rem, 1fr);
+  }
+
+  .grid-container > *:first-child{
   grid-column: 2;
 }
+
 .grid-container > *:last-child{
   grid-column: 3;
 }
+/* positioning items in the bottom */
+.grid-container--home {
+  padding-bottom: max(6rem, 20vh);
+  align-items: end;
+}
+
+}
+
 /* screen only -screen reader through the content  */
 .sr-only {
   position: absolute;
@@ -262,6 +315,7 @@ have the property given in css file, which can easily be modified when needed in
 
 /* styling a link can overwrite or mess with other properties, that's why we use grid and place item */
 .large-button{
+  font-size: 1.5rem;
   position: relative;
   display: inline-grid;
   z-index: 1;
