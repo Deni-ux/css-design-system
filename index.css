@@ -139,6 +139,17 @@ have the property given in css file, which can easily be modified when needed in
   margin-inline: auto;
   max-width: 80rem;
 }
+.grid-container{
+  display: grid;
+  column-gap: var(--container-gap,2rem);
+  grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(0, 40rem)) minmax(2rem, 1fr);
+}
+.grid-container > *:first-child{
+  grid-column: 2;
+}
+.grid-container > *:last-child{
+  grid-column: 3;
+}
 /* screen only -screen reader through the content  */
 .sr-only {
   position: absolute;
@@ -252,7 +263,7 @@ have the property given in css file, which can easily be modified when needed in
 /* styling a link can overwrite or mess with other properties, that's why we use grid and place item */
 .large-button{
   position: relative;
-  display: grid;
+  display: inline-grid;
   z-index: 1;
   place-items: center;
   padding: 0 2em;

@@ -1,30 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Tourism</title>
-     <!--Google Fonts-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel=" icon"
+      href="./assets/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/png" sizes="32x32" href=".assets/favicon-32x32.png">
-</head>
-<body>
-     <div>
-          <nav>
-            <ul class="primary-navigation underline-indicators flex " style="--gap: 8rem;">
-              <li class="active"><a href="#" class="uppercase text-light letter-spacing-2"><span>00</span>Home</a></li>
-              <li><a href="#" class="uppercase text-light letter-spacing-2"><span>01</span>Destination</a></li>
-              <li><a href="#" class="uppercase text-light letter-spacing-2"><span>02</span>Crew</a></li>
-              <li><a href="#" class="uppercase text-light letter-spacing-2"><span>03</span>Technology</a></li>
-            </ul>
-          </nav>
-        </div>
-</body>
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Space Tourism</title>
+  </head>
+  <body class="home">
+    <header class="primary-header flex">
+      <div>
+        <img src="./assets/shared/logo.svg" alt="space tourism logo" class="logo">
+      </div>
+       <nav>
+        <ul
+          class="primary-navigation underline-indicators flex"
+          style="--gap: 8rem"
+        >
+          <li class="active">
+            <a href="index.html" class="uppercase text-light ff-condensed letter-spacing-2"
+              ><span>00</span>Home</a
+            >
+          </li>
+          <li>
+            <a href="destination.html" class="uppercase text-light ff-condensed letter-spacing-2"
+              ><span>01</span>Destination</a
+            >
+          </li>
+          <li>
+            <a href="crew.html" class="uppercase text-light ff-condensed letter-spacing-2"
+              ><span>02</span>Crew</a
+            >
+          </li>
+          <li>
+            <a href="technology.html" class="uppercase text-light letter-spacing-2"
+              ><span>03</span>Technology</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <div class="grid-container">
+      <div>
+     <h1 class="text-medium font-size-500 ff-condensed uppercase letter-spacing-1"> So, you want to travel to <span class="font-size-900 ff-serif">Space</span> </h1>
+
+
+      <p>
+         Let's face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind if on edge of it. Wel lsit back, and relax because we'll give you a truly out of this world experience!
+      </p>
+    </div>
+<div>
+       <a href="#" class="large-button bg-light ff-serif uppercase font-size-600 text-dark ">Explore</a>
+      </div>
+    </div>
+  </body>
 </html>
