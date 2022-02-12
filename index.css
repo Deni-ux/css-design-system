@@ -333,14 +333,16 @@ have the property given in css file, which can easily be modified when needed in
 }
 
 /* nav bar */
+/* --default styling goes first */
 .primary-navigation{
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
+  background: hsl(var(--clr-white)/0.05 ) ;
+  backdrop-filter: blur(1.5rem);
   
 }
-
 .primary-navigation a {
   text-decoration: none;
 }
@@ -349,13 +351,42 @@ have the property given in css file, which can easily be modified when needed in
   font-weight: 700;
   margin-right: .5em;
 }
+/* max-width 35rem to avoid overwriting the properties for smaller screens */
+@media (max-width: 35rem){
+
+  .primary-navigation {
+  --underline-gap: .5rem;
+  position: fixed;
+  z-index: 1000;
+  inset: 0 0 0 30%;
+  
+  list-style: none;
+  padding: min(20rem, 15vh) 2rem;
+  margin: 0;
+  flex-direction: column;
+
+  
+}
+/* get rid of underline */
+.primary-navigation.underline-indicators > .active {
+      border: 0;
+
+
+}
+}
+
+
+
+
+
 
 /* underlining */
 .underline-indicators > * {
   cursor: pointer;
-  padding: var(--underline-gap, 1rem) 0;
+  padding: var(--underline-gap, .5rem) 0;
   border: 0;
   border-bottom:  .2rem solid hsl(var(--clr-white) /0);
+  background-color: transparent;
 }
 .underline-indicators > *:hover,
 .underline-indicators > *:focus{
