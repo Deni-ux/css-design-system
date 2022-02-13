@@ -199,6 +199,22 @@ have the property given in css file, which can easily be modified when needed in
   white-space: nowrap; /* added line */
   border: 0;
 }
+.skip-to-content{
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--primary-clr));
+  padding: .5em 1em;
+  margin-inline: auto;
+  position: absolute;
+  z-index: 9999;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+
+}
+
+.skip-to-content:focus{
+  transform: translateY(0);
+}
+
 
 /* colours */
 .bg-dark {background-color: hsl(var(--primary-clr));}
