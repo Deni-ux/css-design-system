@@ -201,79 +201,35 @@ have the property given in css file, which can easily be modified when needed in
 }
 
 /* colours */
-.bg-dark {
-  background-color: hsl(var(--primary-clr));
-}
-.bg-medium {
-  background-color: hsl(var(--secondary-clr));
-}
-.bg-light {
-  background-color: hsl(var(--clr-white));
-}
+.bg-dark {background-color: hsl(var(--primary-clr));}
+.bg-medium {background-color: hsl(var(--secondary-clr));}
+.bg-light {background-color: hsl(var(--clr-white));}
 
-.text-dark {
-  color: hsl(var(--primary-clr));
-}
-.text-medium {
-  color: hsl(var(--secondary-clr));
-}
-.text-light {
-  color: hsl(var(--clr-white));
-}
+.text-dark {color: hsl(var(--primary-clr));}
+.text-medium {color: hsl(var(--secondary-clr));}
+.text-light {color: hsl(var(--clr-white));}
 
-.colour-component {
-  background-color: hsl(var(--secondary-clr) / 0.2);
-}
+.colour-component {background-color: hsl(var(--secondary-clr) / 0.2);}
 
 /* typography */
-.ff-normal {
-  font-family: var(--ff-sans-normal);
-}
-.ff-condensed {
-  font-family: var(--ff-sans-cond);
-}
-.ff-serif {
-  font-family: var(--ff-serif);
-}
+.ff-normal {font-family: var(--ff-sans-normal);}
+.ff-condensed { font-family: var(--ff-sans-cond);}
+.ff-serif {font-family: var(--ff-serif);}
 
-.letter-spacing-1 {
-  letter-spacing: 4.75px;
-}
-.letter-spacing-2 {
-  letter-spacing: 2.7px;
-}
-.letter-spacing-3 {
-  letter-spacing: 2.35px;
-}
+.letter-spacing-1 {letter-spacing: 4.75px;}
+.letter-spacing-2 {letter-spacing: 2.7px;}
+.letter-spacing-3 {letter-spacing: 2.35px;}
 
-.uppercase {
-  text-transform: uppercase;
-}
+.uppercase {text-transform: uppercase;}
 
-.font-size-900 {
-  font-size: var(--font-size-900);
-}
-.font-size-800 {
-  font-size: var(--font-size-800);
-}
-.font-size-700 {
-  font-size: var(--font-size-700);
-}
-.font-size-600 {
-  font-size: var(--font-size-600);
-}
-.font-size-500 {
-  font-size: var(--font-size-500);
-}
-.font-size-400 {
-  font-size: var(--font-size-400);
-}
-.font-size-300 {
-  font-size: var(--font-size-300);
-}
-.font-size-200 {
-  font-size: var(--font-size-200);
-}
+.font-size-900 {font-size: var(--font-size-900);}
+.font-size-800 {font-size: var(--font-size-800);}
+.font-size-700 { font-size: var(--font-size-700);}
+.font-size-600 { font-size: var(--font-size-600);}
+.font-size-500 {font-size: var(--font-size-500);}
+.font-size-400 { font-size: var(--font-size-400);}
+.font-size-300 { font-size: var(--font-size-300);}
+.font-size-200 { font-size: var(--font-size-200);}
 
 .font-size-900,
 .font-size-800,
@@ -331,9 +287,21 @@ have the property given in css file, which can easily be modified when needed in
   opacity: 1;
 }
 
-/* nav bar */
+/* PRIMARY-HEADER */
+.logo{
+  margin:2rem clamp(1.5rem, 5vw ,3.5rem);
+}
+
+.primary-header{
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*NAV BAR */
 /* --default styling goes first */
 .primary-navigation{
+  /* adding space in between nav li - gap -clamp */
+  --gap: clamp(1.5rem, 5vw ,3.5rem);
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
@@ -354,7 +322,7 @@ have the property given in css file, which can easily be modified when needed in
 .mobile-nav-toggle{
   display: none;
 }
-/* max-width 35rem to avoid overwriting the properties for smaller screens */
+/* max-width 35rem to avoid overwriting the properties for SMALL screens */
 @media (max-width: 35rem){
 
   .primary-navigation {
@@ -367,6 +335,8 @@ have the property given in css file, which can easily be modified when needed in
   margin: 0;
   flex-direction: column;
   transform: translateX(100%) ;
+  /* add sliding animation for hamburger menu */
+  transition: transform 500ms ease-in-out;
   
 }
 /* add attribute for nav js */
@@ -384,10 +354,21 @@ have the property given in css file, which can easily be modified when needed in
   background: transparent;
   background-image: url(./assets/shared/icon-hamburger.svg);
   background-repeat: no-repeat;
+  background-position: center;
   width: 1.5rem;
   aspect-ratio: 1;
   border: 0;
 }
+/* change icon when close */
+.mobile-nav-toggle[aria-expanded="true"]{
+  background-image: url(./assets/shared/icon-close.svg);
+}
+
+.mobile-nav-toggle:focus-visible{
+  outline: 5px solid white;
+  outline-offset: 5px;
+}
+
 /* get rid of underline */
 .primary-navigation.underline-indicators > .active {
       border: 0;
@@ -395,8 +376,44 @@ have the property given in css file, which can easily be modified when needed in
 
 }
 }
+@media (min-width: 35em) {
+  .primary-navigation {
+    /* add space left and right- add a min, max and middle vw value-clamp */
+    padding-inline: clamp(3rem, 6vw, 7rem) ;
+  }
+}
+
+@media (min-width:35em) and (max-width: 44.999em) {
+  
+ /* numbers disappear */
+  .primary-navigation a > span {
+    display: none;
+  }
+}
+
+@media (min-width: 45em) {
+ 
+  .primary-header::after{
+    content: '';
+    display: block;
+    position:relative;
+    height: 1px;
+    width: 100%;
+    background: hsl(var(--clr-white) / 0.25);
+    margin-right: -2.5rem;
+    order: 1;
 
 
+  }
+  nav {
+    order:2;
+  }
+  
+  .primary-navigation{
+    margin-block: 2rem;
+ 
+  }
+}
 
 
 
