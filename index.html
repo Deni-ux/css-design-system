@@ -18,18 +18,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="index.css" />
-
+    
     <title>Space Tourism</title>
+
+    <script src="index.js" defer></script>
   </head>
   <body class="home">
     <header class="primary-header flex">
       <div>
         <img src="./assets/shared/logo.svg" alt="space tourism logo" class="logo">
       </div>
-      <!-- <nav>
+      <!-- hamburger menu button-->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
+        <span class="sr-only" aria-expanded="false">Menu</span>
+        
+      </button>
+
+       <nav>
         <ul
+        id="primary-navigation"
+        data-visible="false"
           class="primary-navigation underline-indicators flex"
-          style="--gap: 8rem"
+          
         >
           <li class="active">
             <a href="index.html" class="uppercase text-light ff-condensed letter-spacing-2"
@@ -52,7 +62,7 @@
             >
           </li>
         </ul>
-      </nav>-->
+      </nav>
     </header>
 
 

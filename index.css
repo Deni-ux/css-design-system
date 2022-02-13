@@ -89,7 +89,6 @@ body {
   color: hsl(var(--clr-white));
   min-height: 100vh;
   line-height: 1.5;
-
   display: grid;
   grid-template-rows: min-content 1fr;
   overflow-x: hidden;
@@ -351,6 +350,10 @@ have the property given in css file, which can easily be modified when needed in
   font-weight: 700;
   margin-right: .5em;
 }
+
+.mobile-nav-toggle{
+  display: none;
+}
 /* max-width 35rem to avoid overwriting the properties for smaller screens */
 @media (max-width: 35rem){
 
@@ -359,13 +362,31 @@ have the property given in css file, which can easily be modified when needed in
   position: fixed;
   z-index: 1000;
   inset: 0 0 0 30%;
-  
   list-style: none;
   padding: min(20rem, 15vh) 2rem;
   margin: 0;
   flex-direction: column;
-
+  transform: translateX(100%) ;
   
+}
+/* add attribute for nav js */
+.primary-navigation[data-visible="true"]{
+  transform: translateX(0%);
+
+}
+
+.mobile-nav-toggle{
+  display: block;
+  position: absolute;
+  z-index: 2000;
+  right: 1rem;
+  top: 2rem;
+  background: transparent;
+  background-image: url(./assets/shared/icon-hamburger.svg);
+  background-repeat: no-repeat;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  border: 0;
 }
 /* get rid of underline */
 .primary-navigation.underline-indicators > .active {
