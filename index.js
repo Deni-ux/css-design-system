@@ -6,6 +6,7 @@ const navToggle = document.querySelector(".mobile-nav-toggle");
 navToggle.addEventListener("click", () => {
 
     //if menu closed, open it NAV
+    //if menu open, close it NAV
     //check visibility
     const visibility = nav.getAttribute("data-visible");
 
@@ -20,7 +21,7 @@ navToggle.addEventListener("click", () => {
 
 
 
-    //if menu open, close it NAV
+   
 
 });
 

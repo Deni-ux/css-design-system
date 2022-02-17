@@ -12,7 +12,7 @@
   --font-size-800: 3.5rem;
   --font-size-700: 1.5rem;
   --font-size-600: 1rem;
-  --font-size-500: 1.75rem;
+  --font-size-500: 1rem;
   --font-size-400: 0.9375rem;
   --font-size-300: 1rem;
   --font-size-200: 0.875rem;
@@ -152,40 +152,7 @@ have the property given in css file, which can easily be modified when needed in
   margin-inline: auto;
   max-width: 80rem;
 }
-.grid-container{
-  text-align: center;
-  display: grid;
-  place-items: center;
-  padding-inline: 1rem;
-  padding-bottom: 4rem;
-  
-}
-.grid-container p:not([class]){
-  max-width: 50ch;
-}
-/* ------Media query --responsiveness--- */
-@media(min-width: 45rem){
-  .grid-container{
-    text-align: left;
-    column-gap: var(--container-gap,2rem);
-    /* to put space on the sides and between columns  */
-  grid-template-columns: minmax(1rem, 1fr) repeat(2,minmax(0, 30rem)) minmax(1rem, 1fr);
-  }
 
-  .grid-container > *:first-child{
-  grid-column: 2;
-}
-
-.grid-container > *:last-child{
-  grid-column: 3;
-}
-/* positioning items in the bottom */
-.grid-container--home {
-  padding-bottom: max(6rem, 20vh);
-  align-items: end;
-}
-
-}
 
 /* screen only -screen reader through the content  */
 .sr-only {
@@ -496,8 +463,7 @@ have the property given in css file, which can easily be modified when needed in
 /* ---PAGE SPECIFIC BACKGROUND-- */
 /* ------------------------------*/
 body {
- 
-  
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -518,3 +484,151 @@ body {
       background-image: url(./assets/home/background-home-desktop.jpg);
     }
 }
+/* DESTINATION */
+
+.destination {
+  background-image: url(./assets/destination/background-destination-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+   .destination{
+     background-position: center center;
+     background-image: url(.assets/destination/background-destination-tablet.jpg);
+   }
+}
+
+@media (min-width:45rem){
+    .destination{
+      background-image: url(./assets/destination/background-destination-desktop.jpg);
+    }
+}
+/* CREW */
+.crew {
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+@media (min-width: 35rem) {
+   .crew{
+     background-position: center center;
+     background-image: url(.assets/crew/background-crew-tablet.jpg);
+   }
+}
+
+@media (min-width:45rem){
+    .crew{
+      background-image: url(./assets/crew/background-crew-desktop.jpg);
+    }
+}
+/* -------------- */
+/* ---LAYOUT----- */
+/* -------------- */
+
+.grid-container{
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-bottom: 4rem;
+  
+}
+.grid-container p:not([class]){
+  max-width: 50ch;
+}
+
+.numbered-title{
+  grid-area: title;
+}
+
+/* destination layout */
+
+.grid-container--destination{
+  --flow-space:2rem;
+  grid-template-areas: 
+  'title'
+   'image' 
+   'tabs'
+    'content';
+}
+
+.grid-container--destination > img {
+  grid-area: image;
+  max-width: 60%;
+  align-self: start;
+}
+
+.grid-container--destination > .tab-list{
+  grid-area: tabs;
+}
+.grid-container--destination > .destination-info{
+  grid-area: content;
+}
+.destination-meta {
+    flex-direction: column;
+    border-top: 1px solid hsl( var(--clr-white) / .1);
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+.destination-meta p {
+    font-size: 1.75rem;
+}
+
+.destination-meta > p{
+  font-size: 1.75rem;
+}
+
+/* ------Media query --responsiveness--- */
+
+
+@media (min-width:35em) {
+  .numbered-title{
+    justify-self: start;
+    margin-top: 2rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+
+
+@media(min-width: 45rem){
+  .grid-container{
+    text-align: left;
+    column-gap: var(--container-gap,2rem);
+    /* to put space on the sides and between columns  */
+  grid-template-columns: minmax(1rem, 1fr) repeat(2,minmax(0, 30rem)) minmax(1rem, 1fr);
+  }
+/* positioning items in the bottom */
+.grid-container--home {
+  padding-bottom: max(6rem, 20vh);
+  align-items: end;
+}
+
+
+  .grid-container--home > *:first-child{
+  grid-column: 2;
+}
+
+.grid-container--home > *:last-child{
+  grid-column: 3;
+}
+.grid-container--destination{
+  justify-items: start;
+  align-content: start;
+  grid-template-areas:
+  '. title title .'
+  '. image tabs .'
+  '. image content .';
+}
+.grid-container--destination > img {
+  max-width: 90%;
+}
+
+.destination-meta{
+  --gap: min(6vw, 6rem);
+  justify-content: start;
+}
+}
+
