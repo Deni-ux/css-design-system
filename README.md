@@ -1,2 +1,2 @@
 # css-design-system
- practising web development skills
+ practising custom css skills
