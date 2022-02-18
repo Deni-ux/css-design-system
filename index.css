@@ -95,6 +95,7 @@ body {
 }
 
 
+
 /* make images easier to work with */
 img,
 picture {
@@ -145,6 +146,9 @@ select {
 }
 /* we can use the var as inline styling, by default it will 
 have the property given in css file, which can easily be modified when needed in the html file */
+.flow--space-small{
+  --flow-space: .75rem;
+}
 
 .container {
   /* padding:0 2em; to prevent elements touching sides of the page */
@@ -549,7 +553,7 @@ body {
     'content';
 }
 
-.grid-container--destination > img {
+.grid-container--destination > picture {
   grid-area: image;
   max-width: 60%;
   align-self: start;
@@ -576,6 +580,35 @@ body {
   font-size: 1.75rem;
 }
 
+/* crew layout */
+.grid-container--crew {
+    --flow-space: 2rem;
+    grid-template-areas: 
+        'title'
+        'image'
+        'tabs'
+        'content';
+}
+
+.grid-container--crew > picture {
+    grid-area: image;
+    max-width: 60%;
+    border-bottom: 1px solid hsl( var(--clr-white) / .1);
+}
+
+.grid-container--crew > .dot-indicators {
+    grid-area: tabs;
+}
+
+.grid-container--crew > .crew-details {
+    grid-area: content;
+}
+
+.crew-details h2 {
+    color: hsl( var(--clr-white) / .5);
+}
+
+
 /* ------Media query --responsiveness--- */
 
 
@@ -589,6 +622,16 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  .grid-container--crew {
+        padding-bottom: 0;
+        grid-template-areas: 
+            'title'
+            'content'
+            'tabs'
+            'image';
+    }
+    
 }
 
 
@@ -622,7 +665,7 @@ body {
   '. image tabs .'
   '. image content .';
 }
-.grid-container--destination > img {
+.grid-container--destination > picture {
   max-width: 90%;
 }
 
@@ -630,5 +673,21 @@ body {
   --gap: min(6vw, 6rem);
   justify-content: start;
 }
+.grid-container--crew {
+        grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
+        justify-items: start;
+        grid-template-areas: 
+            '. title title .'
+            '. content image .'
+            '. tabs image .';
+    }
+
+    .grid-container--crew > picture {
+        grid-column: span 2;
+        align-self: end; 
+        max-width: 90%;
+    }
+
+
 }
 
