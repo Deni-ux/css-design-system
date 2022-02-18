@@ -1,4 +1,4 @@
-//when so clicks on hamburger menu BUTTON
+//when someone clicks on hamburger menu BUTTON
 const nav = document.querySelector(".primary-navigation");
 
 const navToggle = document.querySelector(".mobile-nav-toggle");
@@ -17,11 +17,7 @@ navToggle.addEventListener("click", () => {
     } else {
         nav.setAttribute("data-visible", false)
         navToggle.setAttribute("aria-expanded", false);
-    }
-
-
-
-   
+    }  
 
 });
 
