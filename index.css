@@ -360,7 +360,7 @@ have the property given in css file, which can easily be modified when needed in
   }
   /* add attribute for nav js */
   .primary-navigation[data-visible="true"] {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
 
   .mobile-nav-toggle {
